@@ -79,7 +79,7 @@
         <div class="talk_show" id="words">
             <?php foreach($rows as $k=>$v){?>
             <div <?php if($v['is_mine']) {echo 'class = "btalk"';} else {echo 'class="atalk"';} ?> >
-                <?php echo $v['username'];?>
+                <?php echo $v['username'];echo "[";echo date('Y-m-d H:i:s',$v['systime']);echo "]";?>
                 <br>
                 <span <?php if($v['is_mine']) {echo 'id = "bsay"';} else {echo 'id="asay"';} ?> >
                     <?php echo $v['content'] ?>
