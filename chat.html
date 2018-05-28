@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>聊天室</title>
+    <style type="text/css">
+        .talk_con{
+            width:600px;
+            height:500px;
+            border:1px solid #666;
+            margin:50px auto 0;
+            background:#fff;border-radius:3px;color:#999;text-align:left;box-shadow:0 0 12px 0 rgba(51, 51, 51, 0.4);
+        }
+        .talk_show{
+            width:580px;
+            height:420px;
+            border:1px solid #666;
+            margin:10px auto 0;
+            overflow:auto;
+            background:#F0F0F0;
+            border-radius:3px;color:#999;text-align:left;box-shadow:0 0 6px 0 rgba(51, 51, 51, 0.4);
+        }
+        .talk_input{
+            width:580px;
+            margin:10px auto 0;
+        }
+        .whotalk{
+            width:50px;
+            height:30px;
+            float:left;
+            outline:none;
+            text-align:right;
+        }
+        .talk_word{
+            width:400px;
+            height:26px;
+            padding:0px;
+            float:left;
+            margin-left:10px;
+            outline:none;
+            text-indent:10px;
+        }        
+        .talk_sub{
+            width:56px;
+            height:30px;
+            float:left;
+            margin-left:10px;
+        }
+        .atalk{
+           margin:20px 75px 20px 20px; 
+        }
+        .atalk span{
+            display:inline-block;
+            background-color: #fff;
+            box-shadow: 0px 0px 2px #ddd;
+            border-radius: 4px;
+            color:black;
+            padding:5px 10px;
+        }
+        .btalk{
+            margin:20px 20px 20px 75px;
+            text-align:right;
+        }
+        .btalk span{
+            display:inline-block;
+            background-color: #9EEA6A;
+            box-shadow: 0px 0px 2px #bbb;
+            border-radius:10px;
+            color:black;
+            padding:5px 10px;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="talk_con">
+        <div class="talk_show" id="words">
+            <?php foreach($rows as $k=>$v){?>
+            <div <?php if($v['is_mine']) {echo 'class = "btalk"';} else {echo 'class="atalk"';} ?> >
+                <?php echo $v['username'];?>
+                <br>
+                <span <?php if($v['is_mine']) {echo 'id = "bsay"';} else {echo 'id="asay"';} ?> >
+                    <?php echo $v['content'] ?>
+                </span>
+            </div>
+            <?php }?>
+            <div id = "bottom"> </div>
+            <script type="text/javascript">document.getElementById("bottom").scrollIntoView();</script>
+        </div>
+        <form action="" method="post" id = "my-content" enctype="multipart/form-data">
+            <div class="talk_input">
+                <input type="text" class="talk_word" id="talkwords" name = "content">
+                <button class="talk_sub" id="talksub">发送</button>
+            </div>
+        </form>
+        <button onclick="window.location.href='chat.php'" class="talk_sub">刷新</button>
+    </div>
+</body>
+</html>

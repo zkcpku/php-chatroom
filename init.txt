@@ -1,0 +1,5 @@
+数据库创建命令
+
+CREATE TABLE `数据库名`.`user` ( `id` INT NOT NULL AUTO_INCREMENT , `username` VARCHAR(32) NOT NULL , `password` VARCHAR(32) NOT NULL , `IP` VARCHAR(32) NOT NULL , PRIMARY KEY (`id`), UNIQUE (`username`), UNIQUE (`IP`)) ENGINE = InnoDB;
+
+CREATE TABLE `数据库名`.`chat` ( `id` INT NOT NULL AUTO_INCREMENT , `username` VARCHAR(32) NOT NULL , `content` TEXT NOT NULL , `systime` INT NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
